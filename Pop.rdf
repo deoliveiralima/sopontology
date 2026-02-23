@@ -1,0 +1,852 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://iff.edu.br/saeg/sopontology/"
+     xml:base="http://iff.edu.br/saeg/sopontology/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:org="http://www.w3.org/ns/org#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sop="https://purl.archive.org/sopontology#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://purl.archive.org/sopontology">
+        <owl:imports rdf:resource="http://www.w3.org/ns/org#"/>
+        <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/org#classification -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/org#classification">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/fundedBy -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/fundedBy">
+        <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/focus"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#approvedBy -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#approvedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#checkedBy -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#checkedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#classification -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#classification">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#createdBy -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#createdBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#guardCondition -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#guardCondition">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Transition"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#BooleanExpression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#includes -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#includes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#performedAt -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#performedAt">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Activity"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#performedBy -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#performedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Activity"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#Performer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#posCondition -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#posCondition">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Activity"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#BooleanExpression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#preCondition -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#preCondition">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Activity"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#BooleanExpression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#previousVersion -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#previousVersion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#responsible -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#responsible">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/org#Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#sopItem -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#sopItem">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#status -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#status">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#SopStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#target -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#target">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Transition"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#Step"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#term -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#term">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#transition -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/sopontology#transition">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Step"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/sopontology#Transition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#approvalDate -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#approvalDate">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#audio -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#audio">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#creationDate -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#creationDate">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#description -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#description">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#discriminator -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#discriminator">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#image -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#image">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#name -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#name">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#number -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#number">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#revisionDate -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#revisionDate">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#validity -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#validity">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#version -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#version">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Sop"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#video -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/sopontology#video">
+        <rdfs:domain rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Activity -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Activity">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#performedAt"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#performedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Generic superclass that aggregates common descriptive properties shared by all entities in the ontology, such as name, description, and multimedia references.</rdfs:comment>
+        <rdfs:comment xml:lang="pt">Superclasse genérica que agrega propriedades descritivas comuns a todas as entidades da ontologia, como nome, descrição e referências multimídia.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Entidade</rdfs:label>
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#BibliographicReference -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#BibliographicReference">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa referências bibliográficas ou normativas que fundamentam ou regulam um Procedimento Operacional Padrão.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents bibliographic or normative references that support or regulate a Standard Operating Procedure.</rdfs:comment>
+        <rdfs:label xml:lang="en">Bibliographic Reference</rdfs:label>
+        <rdfs:label xml:lang="pt">Referência Bibliográfica</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#BooleanExpression -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#BooleanExpression">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="https://purl.archive.org/sopontology#guardCondition"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="https://purl.archive.org/sopontology#posCondition"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="https://purl.archive.org/sopontology#preCondition"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#name"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pt">Representa uma expressão lógica utilizada para definir pré-condições, pós-condições ou condições de guarda que controlam o fluxo de execução de atividades e transições.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a logical expression used to define preconditions, postconditions, or guard conditions controlling the execution flow of activities and transitions.</rdfs:comment>
+        <rdfs:label xml:lang="en">Boolean Expression</rdfs:label>
+        <rdfs:label xml:lang="pt">Expressão Booleana</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Document -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Document">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa documentos auxiliares associados a um Procedimento Operacional Padrão, como formulários, registros ou anexos.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents auxiliary documents associated with a Standard Operating Procedure, such as forms, records, or attachments.</rdfs:comment>
+        <rdfs:label xml:lang="en">Document</rdfs:label>
+        <rdfs:label xml:lang="pt">Documento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Entity -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Entity">
+        <rdfs:comment xml:lang="en">Generic superclass that aggregates common descriptive properties shared by all entities in the ontology, such as name, description, and multimedia references.</rdfs:comment>
+        <rdfs:comment xml:lang="pt">Superclasse genérica que agrega propriedades descritivas comuns a todas as entidades da ontologia, como nome, descrição e referências multimídia.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Entidade</rdfs:label>
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Material -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Material">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa materiais ou recursos necessários para a execução de atividades ou etapas dentro de um procedimento.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents materials or resources required to perform activities or steps within a procedure.</rdfs:comment>
+        <rdfs:label xml:lang="en">Material</rdfs:label>
+        <rdfs:label xml:lang="pt">Material</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Note -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Note">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa observações ou anotações adicionais associadas a um procedimento ou às suas etapas.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents additional observations or annotations associated with a procedure or its steps.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Nota</rdfs:label>
+        <rdfs:label xml:lang="en">Note</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Objective -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Objective">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa o objetivo ou finalidade pretendida de um Procedimento Operacional Padrão.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents the intended goal or purpose of a Standard Operating Procedure.</rdfs:comment>
+        <rdfs:label xml:lang="en">Objective</rdfs:label>
+        <rdfs:label xml:lang="pt">Objetivo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#OrganizationPerformer -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#OrganizationPerformer">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Performer"/>
+        <rdfs:comment xml:lang="pt">Representa um executor definido como uma organização responsável pela execução de atividades dentro de um procedimento.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a performer defined as an organization responsible for executing activities within a procedure.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Executor por Organização</rdfs:label>
+        <rdfs:label xml:lang="en">Organization-based Performer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#OrganizationPlace -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#OrganizationPlace">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Organization"/>
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Place"/>
+        <rdfs:comment xml:lang="pt">Representa um local associado a uma unidade organizacional onde um procedimento é executado.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a place associated with an organizational unit where a procedure is executed.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Local Organizacional</rdfs:label>
+        <rdfs:label xml:lang="en">Organization Place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Performer -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Performer">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:comment xml:lang="pt">Representa o agente responsável pela execução de uma atividade ou etapa dentro de um procedimento.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents an agent responsible for performing an activity or step within a procedure.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Executor</rdfs:label>
+        <rdfs:label xml:lang="en">Performer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Place -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Place">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:comment xml:lang="pt">Representa o local onde uma atividade ou etapa de um procedimento é executada.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a location where an activity or step of a procedure is performed.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Local</rdfs:label>
+        <rdfs:label xml:lang="en">Place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#RolePerformer -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#RolePerformer">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Role"/>
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Performer"/>
+        <rdfs:comment xml:lang="pt">Representa um executor definido por um papel organizacional, e não por um indivíduo ou organização específica.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a performer defined by an organizational role rather than an individual or organization.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Executor por Papel</rdfs:label>
+        <rdfs:label xml:lang="en">Role-based Performer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#SafeInstruction -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#SafeInstruction">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa instruções relacionadas à segurança, destinadas à prevenção de riscos durante a execução de um procedimento.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents safety-related instructions aimed at preventing risks during the execution of a procedure.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Instrução de Segurança</rdfs:label>
+        <rdfs:label xml:lang="en">Safety Instruction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Scope -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Scope">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Define o escopo de aplicação de um Procedimento Operacional Padrão.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Defines the scope of application of a Standard Operating Procedure.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Escopo</rdfs:label>
+        <rdfs:label xml:lang="en">Scope</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#SitePlace -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#SitePlace">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/org#Site"/>
+                    <rdf:Description rdf:about="https://purl.archive.org/sopontology#Place"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/org#Site"/>
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Place"/>
+        <rdfs:comment xml:lang="pt">Representa um local físico onde as atividades de um procedimento são realizadas.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a physical site where activities of a procedure are carried out.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Local Físico</rdfs:label>
+        <rdfs:label xml:lang="en">Site Place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Sop -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Sop">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#status"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="https://purl.archive.org/sopontology#previousVersion"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#name"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#number"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#validity"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#version"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#approvalDate"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#creationDate"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#revisionDate"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pt">Representa um Procedimento Operacional Padrão como um documento normativo que descreve formalmente um processo operacional, incluindo versionamento, ciclo de vida e responsabilidades.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a Standard Operating Procedure as a normative document that formally describes an operational process, including its versioning, lifecycle, and responsibilities.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Procedimento Operacional Padrão</rdfs:label>
+        <rdfs:label xml:lang="en">Standard Operating Procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#SopItem -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#SopItem">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="https://purl.archive.org/sopontology#sopItem"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#discriminator"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#name"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Abstract class representing complementary informational or documentary elements associated with a Standard Operating Procedure.</rdfs:comment>
+        <rdfs:comment xml:lang="pt">Classe abstrata que representa elementos informacionais ou documentais complementares associados a um Procedimento Operacional Padrão.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Item do POP</rdfs:label>
+        <rdfs:label xml:lang="en">SOP Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#SopStatus -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#SopStatus">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purl.archive.org/sopontology#approved"/>
+                    <rdf:Description rdf:about="https://purl.archive.org/sopontology#draft"/>
+                    <rdf:Description rdf:about="https://purl.archive.org/sopontology#obsolete"/>
+                    <rdf:Description rdf:about="https://purl.archive.org/sopontology#published"/>
+                    <rdf:Description rdf:about="https://purl.archive.org/sopontology#retired"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Entity"/>
+        <rdfs:comment xml:lang="pt">Representa o estado do ciclo de vida de um Procedimento Operacional Padrão, como rascunho, aprovado, revisado ou obsoleto.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents the lifecycle status of a Standard Operating Procedure, such as draft, approved, revised, or obsolete.</rdfs:comment>
+        <rdfs:label xml:lang="en">SOP Status</rdfs:label>
+        <rdfs:label xml:lang="pt">Status do POP</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Step -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Step">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa a instância concreta de execução de uma atividade no contexto de um Procedimento Operacional Padrão específico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a concrete execution instance of an activity within the context of a specific Standard Operating Procedure.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Etapa</rdfs:label>
+        <rdfs:label xml:lang="en">Step</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#Transition -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#Transition">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.archive.org/sopontology#target"/>
+                <owl:someValuesFrom rdf:resource="https://purl.archive.org/sopontology#Step"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="https://purl.archive.org/sopontology#transition"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pt">Representa uma transição direcionada entre atividades, definindo o fluxo possível de execução dentro de um procedimento.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents a directed transition between activities, defining the possible flow of execution within a procedure.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transition</rdfs:label>
+        <rdfs:label xml:lang="pt">Transição</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#UsageFrequency -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#UsageFrequency">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa a frequência com que um Procedimento Operacional Padrão deve ser executado, como diária, semanal, mensal ou sob demanda.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents the frequency with which a Standard Operating Procedure is expected to be executed, such as daily, weekly, monthly, or on demand.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Frequência de Uso</rdfs:label>
+        <rdfs:label xml:lang="en">Usage Frequency</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#UsageSituation -->
+
+    <owl:Class rdf:about="https://purl.archive.org/sopontology#UsageSituation">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/sopontology#SopItem"/>
+        <rdfs:comment xml:lang="pt">Representa situações ou contextos nos quais um Procedimento Operacional Padrão deve ser aplicado.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Represents situations or contexts in which a Standard Operating Procedure should be applied.</rdfs:comment>
+        <rdfs:label xml:lang="pt">Situação de Uso</rdfs:label>
+        <rdfs:label xml:lang="en">Usage Situation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.archive.org/sopontology#approved -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/sopontology#approved"/>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#draft -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/sopontology#draft"/>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#obsolete -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/sopontology#obsolete"/>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#published -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/sopontology#published"/>
+    
+
+
+    <!-- https://purl.archive.org/sopontology#retired -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/sopontology#retired"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
