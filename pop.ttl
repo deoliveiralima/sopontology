@@ -156,7 +156,7 @@ sop:hasStatus rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty ;
               rdf:type owl:FunctionalProperty ;
               rdfs:domain sop:Sop ;
-              rdfs:range sop:SopStatus ;
+              rdfs:range sop:Status ;
               rdfs:comment "Associa um Procedimento Operacional Padrão ao seu estado atual no ciclo de vida (ex: rascunho, aprovado, publicado)."@pt ,
                            "Associates a Standard Operating Procedure with its current lifecycle status (e.g., draft, approved, published)."@en ;
               rdfs:label "SOP status"@en ,
@@ -212,7 +212,6 @@ sop:hasTransition rdf:type owl:ObjectProperty ;
 ###  https://purl.archive.org/sopontology#performedAt
 sop:performedAt rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
-                rdf:type owl:FunctionalProperty ;
                 rdfs:domain sop:Activity ;
                 rdfs:range sop:Place ;
                 rdfs:comment "Associa uma atividade ao local onde ela é realizada."@pt ,
@@ -224,7 +223,6 @@ sop:performedAt rdf:type owl:ObjectProperty ;
 ###  https://purl.archive.org/sopontology#performedBy
 sop:performedBy rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
-                rdf:type owl:FunctionalProperty ;
                 rdfs:domain sop:Activity ;
                 rdfs:range sop:Performer ;
                 rdfs:comment "Associa uma atividade ou etapa ao executor responsável por sua realização."@pt ,
@@ -632,21 +630,21 @@ sop:Sop rdf:type owl:Class ;
                    "Standard Operating Procedure"@en .
 
 
-###  https://purl.archive.org/sopontology#SopStatus
-sop:SopStatus rdf:type owl:Class ;
-              owl:equivalentClass [ rdf:type owl:Class ;
-                                    owl:oneOf ( sop:approved
-                                                sop:draft
-                                                sop:obsolete
-                                                sop:published
-                                                sop:retired
-                                              )
-                                  ] ;
-              rdfs:subClassOf sop:Entity ;
-              rdfs:comment "Representa o estado do ciclo de vida de um Procedimento Operacional Padrão, como rascunho, aprovado, revisado ou obsoleto."@pt ,
-                           "Represents the lifecycle status of a Standard Operating Procedure, such as draft, approved, revised, or obsolete."@en ;
-              rdfs:label "SOP Status"@en ,
-                         "Status do POP"@pt .
+###  https://purl.archive.org/sopontology#Status
+sop:Status rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:oneOf ( sop:approved
+                                             sop:draft
+                                             sop:obsolete
+                                             sop:published
+                                             sop:retired
+                                           )
+                               ] ;
+           rdfs:subClassOf sop:Entity ;
+           rdfs:comment "Representa o estado do ciclo de vida de um Procedimento Operacional Padrão, como rascunho, aprovado, revisado ou obsoleto."@pt ,
+                        "Represents the lifecycle status of a Standard Operating Procedure, such as draft, approved, revised, or obsolete."@en ;
+           rdfs:label "SOP Status"@en ,
+                      "Status do POP"@pt .
 
 
 ###  https://purl.archive.org/sopontology#Step
