@@ -167,11 +167,10 @@ sop:hasStatus rdf:type owl:ObjectProperty ;
 sop:hasStep rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdf:type owl:InverseFunctionalProperty ;
-            rdfs:domain sop:Section ,
-                        sop:Sop ;
+            rdfs:domain sop:Section ;
             rdfs:range sop:Step ;
-            rdfs:comment "Associa um Procedimento Operacional Padrão a uma etapa que compõe sua estrutura de execução."@pt ,
-                         "Associates a Standard Operating Procedure with a step that composes its execution structure."@en ;
+            rdfs:comment "Associa um Procedimento Operacional Padrão a uma seção que compõe sua estrutura de execução."@pt ,
+                         "Associates a Standard Operating Procedure with a section that composes its execution structure."@en ;
             rdfs:label "includes step"@en ,
                        "inclui etapa"@pt .
 
@@ -234,7 +233,6 @@ sop:performedBy rdf:type owl:ObjectProperty ;
 #################################################################
 #    Data properties
 #################################################################
-
 ###  https://purl.archive.org/sopontology#approvalDate
 sop:approvalDate rdf:type owl:DatatypeProperty ;
                  rdfs:domain sop:Sop ;
@@ -357,7 +355,6 @@ sop:video rdf:type owl:DatatypeProperty ;
 #################################################################
 #    Classes
 #################################################################
-
 ###  https://purl.archive.org/sopontology#Activity
 sop:Activity rdf:type owl:Class ;
              rdfs:subClassOf sop:Entity ,
@@ -560,7 +557,7 @@ sop:Scope rdf:type owl:Class ;
 
 ###  https://purl.archive.org/sopontology#Section
 sop:Section rdf:type owl:Class ;
-            rdfs:subClassOf sop:Item ,
+            rdfs:subClassOf sop:Activity ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty sop:hasStep ;
                               owl:someValuesFrom sop:Step
@@ -695,7 +692,6 @@ sop:UsageSituation rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
-
 ###  https://purl.archive.org/sopontology#approved
 sop:approved rdf:type owl:NamedIndividual .
 
