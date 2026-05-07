@@ -146,13 +146,13 @@ sop:hasResponsible rdf:type owl:ObjectProperty ;
 ###  https://purl.archive.org/sopontology#hasSection
 sop:hasSection rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
-               rdf:type owl:InverseFunctionalProperty ;
+               rdf:type owl:FunctionalProperty ;
                rdfs:domain sop:Sop ;
                rdfs:range sop:Section ;
                rdfs:comment "Associa um Procedimento Operacional Padrão a uma seção que compõe sua estrutura de execução."@pt ,
-                         "Associates a Standard Operating Procedure with a section that composes its execution structure."@en ;
+                            "Associates a Standard Operating Procedure with a section that composes its execution structure."@en ;
                rdfs:label "includes section"@en ,
-                           "inclui seção"@pt .
+                          "inclui seção"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasStatus
@@ -237,6 +237,7 @@ sop:performedBy rdf:type owl:ObjectProperty ;
 #################################################################
 #    Data properties
 #################################################################
+
 ###  https://purl.archive.org/sopontology#approvalDate
 sop:approvalDate rdf:type owl:DatatypeProperty ;
                  rdfs:domain sop:Sop ;
@@ -359,6 +360,7 @@ sop:video rdf:type owl:DatatypeProperty ;
 #################################################################
 #    Classes
 #################################################################
+
 ###  https://purl.archive.org/sopontology#Activity
 sop:Activity rdf:type owl:Class ;
              rdfs:subClassOf sop:Entity ,
@@ -457,15 +459,6 @@ sop:Item rdf:type owl:Class ;
                     "SOP Item"@en .
 
 
-###  https://purl.archive.org/sopontology#Material
-sop:Material rdf:type owl:Class ;
-             rdfs:subClassOf sop:Item ;
-             rdfs:comment "Representa materiais ou recursos necessários para a execução de atividades ou etapas dentro de um procedimento."@pt ,
-                          "Represents materials or resources required to perform activities or steps within a procedure."@en ;
-             rdfs:label "Material"@en ,
-                        "Material"@pt .
-
-
 ###  https://purl.archive.org/sopontology#Note
 sop:Note rdf:type owl:Class ;
          rdfs:subClassOf sop:Item ;
@@ -528,6 +521,15 @@ sop:Place rdf:type owl:Class ;
                      "Place"@en .
 
 
+###  https://purl.archive.org/sopontology#Resource
+sop:Resource rdf:type owl:Class ;
+             rdfs:subClassOf sop:Item ;
+             rdfs:comment "Representa materiais ou recursos necessários para a execução de atividades ou etapas dentro de um procedimento."@pt ,
+                          "Represents materials or resources required to perform activities or steps within a procedure."@en ;
+             rdfs:label "Material"@en ,
+                        "Material"@pt .
+
+
 ###  https://purl.archive.org/sopontology#RolePerformer
 sop:RolePerformer rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( org:Role
@@ -562,9 +564,15 @@ sop:Scope rdf:type owl:Class ;
 ###  https://purl.archive.org/sopontology#Section
 sop:Section rdf:type owl:Class ;
             rdfs:subClassOf sop:Activity ,
+                            sop:Item ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty sop:hasStep ;
                               owl:someValuesFrom sop:Step
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf sop:hasSection
+                                             ] ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger
                             ] .
 
 
@@ -696,6 +704,7 @@ sop:UsageSituation rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
+
 ###  https://purl.archive.org/sopontology#approved
 sop:approved rdf:type owl:NamedIndividual .
 
