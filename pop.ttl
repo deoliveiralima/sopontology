@@ -1,4 +1,4 @@
-@prefix : <https://purl.archive.org/sopontology/> .
+@prefix : <https://purl.archive.org/sopontology#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix org: <http://www.w3.org/ns/org#> .
@@ -23,8 +23,7 @@
 #################################################################
 
 ###  http://www.w3.org/ns/org#classification
-org:classification rdfs:subPropertyOf owl:topObjectProperty ;
-                   rdfs:domain sop:Sop .
+org:classification rdfs:subPropertyOf owl:topObjectProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/fundedBy
@@ -70,8 +69,8 @@ sop:hasClassification rdf:type owl:ObjectProperty ;
                       rdfs:range skos:Concept ;
                       rdfs:comment "Associa o procedimento a uma categoria ou conceito de classificação definido em um sistema de organização do conhecimento (SKOS)."@pt ,
                                    "Associates the procedure with a classification category or concept defined in a knowledge organization system (SKOS)."@en ;
-                      rdfs:label "classification"@en ,
-                                 "classificação"@pt .
+                      rdfs:label "has classification"@en ,
+                                 "possui classificação"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasGuardCondition
@@ -82,8 +81,8 @@ sop:hasGuardCondition rdf:type owl:ObjectProperty ;
                       rdfs:range sop:BooleanExpression ;
                       rdfs:comment "Especifica uma expressão booleana que deve ser satisfeita para que uma transição seja executada."@pt ,
                                    "Specifies a boolean expression that must be satisfied for a transition to be executed."@en ;
-                      rdfs:label "condição de guarda"@pt ,
-                                 "guard condition"@en .
+                      rdfs:label "has guard condition"@en ,
+                                 "possui condição de guarda"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasItem
@@ -96,16 +95,16 @@ sop:hasItem rdf:type owl:ObjectProperty ;
                        "tem item"@pt .
 
 
-###  https://purl.archive.org/sopontology#hasPosCondition
-sop:hasPosCondition rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf owl:topObjectProperty ;
-                    rdf:type owl:FunctionalProperty ;
-                    rdfs:domain sop:Activity ;
-                    rdfs:range sop:BooleanExpression ;
-                    rdfs:comment "Define uma expressão booleana que deve ser verdadeira após a conclusão de uma atividade ou etapa."@pt ,
-                                 "Defines a boolean expression that must hold after the completion of an activity or step."@en ;
-                    rdfs:label "post-condition"@en ,
-                               "pós-condição"@pt .
+###  https://purl.archive.org/sopontology#hasPostCondition
+sop:hasPostCondition rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdf:type owl:FunctionalProperty ;
+                     rdfs:domain sop:Activity ;
+                     rdfs:range sop:BooleanExpression ;
+                     rdfs:comment "Define uma expressão booleana que deve ser verdadeira após a conclusão de uma atividade ou etapa."@pt ,
+                                  "Defines a boolean expression that must hold after the completion of an activity or step."@en ;
+                     rdfs:label "has post-condition"@en ,
+                                "possui pós-condição"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasPreCondition
@@ -116,8 +115,8 @@ sop:hasPreCondition rdf:type owl:ObjectProperty ;
                     rdfs:range sop:BooleanExpression ;
                     rdfs:comment "Define uma expressão booleana que deve ser verdadeira antes do início da execução de uma atividade ou etapa."@pt ,
                                  "Defines a boolean expression that must hold before an activity or step can start execution."@en ;
-                    rdfs:label "pre-condition"@en ,
-                               "pré-condição"@pt .
+                    rdfs:label "has pre-condition"@en ,
+                               "possui pré-condição"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasPreviousVersion
@@ -128,8 +127,8 @@ sop:hasPreviousVersion rdf:type owl:ObjectProperty ;
                        rdfs:range sop:Sop ;
                        rdfs:comment "Links a Standard Operating Procedure to its immediately preceding version."@en ,
                                     "Relaciona um Procedimento Operacional Padrão à sua versão imediatamente anterior."@pt ;
-                       rdfs:label "previous version"@en ,
-                                  "versão anterior"@pt .
+                       rdfs:label "has previous version"@en ,
+                                  "possui versão anterior"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasResponsible
@@ -139,8 +138,8 @@ sop:hasResponsible rdf:type owl:ObjectProperty ;
                    rdfs:range org:Organization ;
                    rdfs:comment "Indica a organização responsável pela manutenção ou governança de um Procedimento Operacional Padrão."@pt ,
                                 "Indicates the organization responsible for maintaining or governing a Standard Operating Procedure."@en ;
-                   rdfs:label "organização responsável"@pt ,
-                              "responsible organization"@en .
+                   rdfs:label "has responsible"@en ,
+                              "possui responsável"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasStatus
@@ -149,22 +148,20 @@ sop:hasStatus rdf:type owl:ObjectProperty ;
               rdf:type owl:FunctionalProperty ;
               rdfs:domain sop:Sop ;
               rdfs:range sop:Status ;
-              rdfs:comment "Associa um Procedimento Operacional Padrão ao seu estado atual no ciclo de vida (ex: rascunho, aprovado, publicado)."@pt ,
-                           "Associates a Standard Operating Procedure with its current lifecycle status (e.g., draft, approved, published)."@en ;
-              rdfs:label "SOP status"@en ,
-                         "status do SOP"@pt .
+              rdfs:comment "Associa um Procedimento Operacional Padrão ao seu estado atual no ciclo de vida (ex: rascunho, aprovado)."@pt ,
+                           "Associates a Standard Operating Procedure with its current lifecycle status (e.g., draft, approved)."@en ;
+              rdfs:label "has status"@en ,
+                         "possui status"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasStep
 sop:hasStep rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
-            rdf:type owl:InverseFunctionalProperty ;
-            rdfs:domain sop:Section ;
+            rdfs:domain sop:Sop ;
             rdfs:range sop:Step ;
-            rdfs:comment "Associa uma seção de um Procedimento Operacional Padrão a uma etapa  que compõe sua estrutura de execução."@pt ,
-                         "Associates a section of a Standard Operating Procedure with a step that composes its execution structure."@en ;
-            rdfs:label "includes step"@en ,
-                       "inclui etapa"@pt .
+            rdfs:comment "."@en ,
+                         "."@pt ;
+            rdfs:label "has step"@en ,
+                       "possui etapa"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasTarget
@@ -175,8 +172,8 @@ sop:hasTarget rdf:type owl:ObjectProperty ;
               rdfs:range sop:Step ;
               rdfs:comment "Associa uma transição à etapa de destino que será executada em seguida."@pt ,
                            "Associates a transition with the target step to be executed next."@en ;
-              rdfs:label "etapa de destino"@pt ,
-                         "target step"@en .
+              rdfs:label "has target step"@en ,
+                         "possui etapa de destino"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasTerm
@@ -186,8 +183,8 @@ sop:hasTerm rdf:type owl:ObjectProperty ;
             rdfs:range skos:Concept ;
             rdfs:comment "Associa o procedimento a termos ou palavras-chave para fins de indexação e recuperação da informação."@pt ,
                          "Associates the procedure with terms or keywords for indexing and information retrieval purposes."@en ;
-            rdfs:label "indexed term"@en ,
-                       "termo indexado"@pt .
+            rdfs:label "has indexed term"@en ,
+                       "possui termo indexado"@pt .
 
 
 ###  https://purl.archive.org/sopontology#hasTransition
@@ -196,8 +193,8 @@ sop:hasTransition rdf:type owl:ObjectProperty ;
                   rdfs:range sop:Transition ;
                   rdfs:comment "Relaciona uma etapa às transições que definem os possíveis fluxos de execução para atividades subsequentes."@pt ,
                                "Relates a step to the transitions that define the possible flow of execution to subsequent activities."@en ;
-                  rdfs:label "transition"@en ,
-                             "transição"@pt .
+                  rdfs:label "has transition"@en ,
+                             "possui transição"@pt .
 
 
 ###  https://purl.archive.org/sopontology#includes
@@ -255,7 +252,7 @@ sop:audio rdf:type owl:DatatypeProperty ;
 ###  https://purl.archive.org/sopontology#creationDate
 sop:creationDate rdf:type owl:DatatypeProperty ;
                  rdfs:domain sop:Sop ;
-                 rdfs:range xsd:dateTime ;
+                 rdfs:range xsd:date ;
                  rdfs:comment "Records the exact date and time of the SOP record creation in the system."@en ,
                               "Registra a data e hora exatas da criação do registro do SOP no sistema."@pt ;
                  rdfs:label "creation date"@en ,
@@ -295,6 +292,7 @@ sop:image rdf:type owl:DatatypeProperty ;
 ###  https://purl.archive.org/sopontology#name
 sop:name rdf:type owl:DatatypeProperty ;
          rdfs:domain sop:Entity ;
+         rdfs:range xsd:string ;
          rdfs:comment "O nome legível por humanos ou título que identifica a entidade."@pt ,
                       "The human-readable name or title identifying the entity."@en ;
          rdfs:label "name"@en ,
@@ -304,7 +302,7 @@ sop:name rdf:type owl:DatatypeProperty ;
 ###  https://purl.archive.org/sopontology#number
 sop:number rdf:type owl:DatatypeProperty ;
            rdfs:domain sop:Sop ;
-           rdfs:range xsd:int ;
+           rdfs:range xsd:string ;
            rdfs:comment "A unique numeric identifier assigned to the Standard Operating Procedure."@en ,
                         "Um identificador numérico único atribuído ao Procedimento Operacional Padrão."@pt ;
            rdfs:label "number"@en ,
@@ -357,15 +355,7 @@ sop:video rdf:type owl:DatatypeProperty ;
 
 ###  https://purl.archive.org/sopontology#Activity
 sop:Activity rdf:type owl:Class ;
-             rdfs:subClassOf sop:Entity ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty sop:performedAt ;
-                               owl:someValuesFrom owl:Thing
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty sop:performedBy ;
-                               owl:someValuesFrom owl:Thing
-                             ] ;
+             rdfs:subClassOf sop:Entity ;
              rdfs:comment "Generic superclass that aggregates common descriptive properties shared by all entities in the ontology, such as name, description, and multimedia references."@en ,
                           "Superclasse genérica que agrega propriedades descritivas comuns a todas as entidades da ontologia, como nome, descrição e referências multimídia."@pt ;
              rdfs:label "Entidade"@pt ,
@@ -390,7 +380,7 @@ sop:BooleanExpression rdf:type owl:Class ;
                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
                                       ] ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty [ owl:inverseOf sop:hasPosCondition
+                                        owl:onProperty [ owl:inverseOf sop:hasPostCondition
                                                        ] ;
                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
                                       ] ,
@@ -426,9 +416,13 @@ sop:Entity rdf:type owl:Class ;
                       "Entity"@en .
 
 
-###  https://purl.archive.org/sopontology#ExpectedResults
-sop:ExpectedResults rdf:type owl:Class ;
-                    rdfs:subClassOf sop:Item .
+###  https://purl.archive.org/sopontology#ExpectedResult
+sop:ExpectedResult rdf:type owl:Class ;
+                   rdfs:subClassOf sop:Item ;
+                   rdfs:comment "Representa um resultado esperado associado a um Procedimento Operacional Padrão, indicando o efeito, produto, condição ou estado que se espera alcançar após sua execução."@pt ,
+                                "Represents an expected result associated with a Standard Operating Procedure, indicating the effect, product, condition, or state expected to be achieved after its execution."@en ;
+                   rdfs:label "Expected result"@en ,
+                              "Resultado esperado"@pt .
 
 
 ###  https://purl.archive.org/sopontology#Item
@@ -518,9 +512,9 @@ sop:Place rdf:type owl:Class ;
 ###  https://purl.archive.org/sopontology#Resource
 sop:Resource rdf:type owl:Class ;
              rdfs:subClassOf sop:Item ;
-             rdfs:comment "Representa materiais ou recursos requeridos para realizar atividades ou etapas em um procedimento."@pt-br ,
+             rdfs:comment "Representa materiais ou recursos requeridos para realizar atividades ou etapas em um procedimento."@pt ,
                           "Represents materials or resources required to perform activities or steps within a procedure."@en ;
-             rdfs:label "Recurso"@pt-br ,
+             rdfs:label "Recurso"@pt ,
                         "Resource"@en .
 
 
@@ -537,13 +531,13 @@ sop:RolePerformer rdf:type owl:Class ;
                              "Role-based Performer"@en .
 
 
-###  https://purl.archive.org/sopontology#SafeInstruction
-sop:SafeInstruction rdf:type owl:Class ;
-                    rdfs:subClassOf sop:Item ;
-                    rdfs:comment "Representa instruções relacionadas à segurança, destinadas à prevenção de riscos durante a execução de um procedimento."@pt ,
-                                 "Represents safety-related instructions aimed at preventing risks during the execution of a procedure."@en ;
-                    rdfs:label "Instrução de Segurança"@pt ,
-                               "Safety Instruction"@en .
+###  https://purl.archive.org/sopontology#SafetyInstruction
+sop:SafetyInstruction rdf:type owl:Class ;
+                      rdfs:subClassOf sop:Item ;
+                      rdfs:comment "Representa instruções relacionadas à segurança, destinadas à prevenção de riscos durante a execução de um procedimento."@pt ,
+                                   "Represents safety-related instructions aimed at preventing risks during the execution of a procedure."@en ;
+                      rdfs:label "Instrução de Segurança"@pt ,
+                                 "Safety Instruction"@en .
 
 
 ###  https://purl.archive.org/sopontology#Scope
@@ -553,16 +547,6 @@ sop:Scope rdf:type owl:Class ;
                        "Defines the scope of application of a Standard Operating Procedure."@en ;
           rdfs:label "Escopo"@pt ,
                      "Scope"@en .
-
-
-###  https://purl.archive.org/sopontology#Section
-sop:Section rdf:type owl:Class ;
-            rdfs:subClassOf sop:Activity ,
-                            sop:Item ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty sop:hasStep ;
-                              owl:someValuesFrom sop:Step
-                            ] .
 
 
 ###  https://purl.archive.org/sopontology#SitePlace
@@ -603,10 +587,6 @@ sop:Sop rdf:type owl:Class ;
                           owl:cardinality "1"^^xsd:nonNegativeInteger
                         ] ,
                         [ rdf:type owl:Restriction ;
-                          owl:onProperty sop:validity ;
-                          owl:cardinality "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
                           owl:onProperty sop:version ;
                           owl:cardinality "1"^^xsd:nonNegativeInteger
                         ] ,
@@ -621,6 +601,10 @@ sop:Sop rdf:type owl:Class ;
                         [ rdf:type owl:Restriction ;
                           owl:onProperty sop:revisionDate ;
                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty sop:validity ;
+                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
                         ] ;
         rdfs:comment "Representa um Procedimento Operacional Padrão como um documento normativo que descreve formalmente um processo operacional, incluindo versionamento, ciclo de vida e responsabilidades."@pt ,
                      "Represents a Standard Operating Procedure as a normative document that formally describes an operational process, including its versioning, lifecycle, and responsibilities."@en ;
@@ -634,13 +618,12 @@ sop:Status rdf:type owl:Class ;
                                  owl:oneOf ( sop:approved
                                              sop:draft
                                              sop:obsolete
-                                             sop:published
                                              sop:retired
                                            )
                                ] ;
            rdfs:subClassOf sop:Entity ;
-           rdfs:comment "Representa o estado do ciclo de vida de um Procedimento Operacional Padrão, como rascunho, aprovado, revisado ou obsoleto."@pt ,
-                        "Represents the lifecycle status of a Standard Operating Procedure, such as draft, approved, revised, or obsolete."@en ;
+           rdfs:comment "Representa o estado do ciclo de vida de um Procedimento Operacional Padrão, como rascunho, aprovado ou obsoleto."@pt ,
+                        "Represents the lifecycle status of a Standard Operating Procedure, such as draft, approved, or obsolete."@en ;
            rdfs:label "SOP Status"@en ,
                       "Status do POP"@pt .
 
@@ -648,7 +631,12 @@ sop:Status rdf:type owl:Class ;
 ###  https://purl.archive.org/sopontology#Step
 sop:Step rdf:type owl:Class ;
          rdfs:subClassOf sop:Activity ,
-                         sop:Item ;
+                         sop:Item ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty sop:includes ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass sop:Sop
+                         ] ;
          rdfs:comment "Representa a instância concreta de execução de uma atividade no contexto de um Procedimento Operacional Padrão específico."@pt ,
                       "Represents a concrete execution instance of an activity within the context of a specific Standard Operating Procedure."@en ;
          rdfs:label "Etapa"@pt ,
