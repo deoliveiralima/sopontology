@@ -12,7 +12,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix terms: <http://purl.org/dc/terms/> .
-@base <https://purl.archive.org/sopontology/> .
+@base <https://purl.archive.org/sopontology#> .
 
 <https://purl.archive.org/sopontology> rdf:type owl:Ontology ;
                                         owl:imports org: ,
@@ -156,10 +156,11 @@ sop:hasStatus rdf:type owl:ObjectProperty ;
 
 ###  https://purl.archive.org/sopontology#hasStep
 sop:hasStep rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf sop:hasItem ;
             rdfs:domain sop:Sop ;
             rdfs:range sop:Step ;
-            rdfs:comment "."@en ,
-                         "."@pt ;
+            rdfs:comment "Relaciona um Procedimento Operacional Padrão às etapas que compõem sua execução."@pt ,
+                         "Relates a Standard Operating Procedure to the steps that compose its execution."@en ;
             rdfs:label "has step"@en ,
                        "possui etapa"@pt .
 
@@ -200,7 +201,11 @@ sop:hasTransition rdf:type owl:ObjectProperty ;
 ###  https://purl.archive.org/sopontology#includes
 sop:includes rdf:type owl:ObjectProperty ;
              rdfs:domain sop:Step ;
-             rdfs:range sop:Sop .
+             rdfs:range sop:Sop ;
+             rdfs:comment "Relaciona uma etapa a um Procedimento Operacional Padrão cuja execução é incluída ou referenciada como parte dessa etapa. Cada etapa pode incluir no máximo um procedimento."@pt ,
+                          "Relates a step to a Standard Operating Procedure whose execution is included or referenced as part of that step. Each step may include at most one procedure."@en ;
+             rdfs:label "includes procedure"@en ,
+                        "inclui procedimento"@pt .
 
 
 ###  https://purl.archive.org/sopontology#performedAt
@@ -230,7 +235,8 @@ sop:performedBy rdf:type owl:ObjectProperty ;
 #################################################################
 
 ###  https://purl.archive.org/sopontology#approvalDate
-sop:approvalDate rdf:type owl:DatatypeProperty ;
+sop:approvalDate rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
                  rdfs:domain sop:Sop ;
                  rdfs:range xsd:date ;
                  rdfs:comment "Records the date when the Standard Operating Procedure was formally approved."@en ,
@@ -250,7 +256,8 @@ sop:audio rdf:type owl:DatatypeProperty ;
 
 
 ###  https://purl.archive.org/sopontology#creationDate
-sop:creationDate rdf:type owl:DatatypeProperty ;
+sop:creationDate rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
                  rdfs:domain sop:Sop ;
                  rdfs:range xsd:date ;
                  rdfs:comment "Records the exact date and time of the SOP record creation in the system."@en ,
@@ -300,7 +307,8 @@ sop:name rdf:type owl:DatatypeProperty ;
 
 
 ###  https://purl.archive.org/sopontology#number
-sop:number rdf:type owl:DatatypeProperty ;
+sop:number rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
            rdfs:domain sop:Sop ;
            rdfs:range xsd:string ;
            rdfs:comment "A unique numeric identifier assigned to the Standard Operating Procedure."@en ,
@@ -310,7 +318,8 @@ sop:number rdf:type owl:DatatypeProperty ;
 
 
 ###  https://purl.archive.org/sopontology#revisionDate
-sop:revisionDate rdf:type owl:DatatypeProperty ;
+sop:revisionDate rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
                  rdfs:domain sop:Sop ;
                  rdfs:range xsd:date ;
                  rdfs:comment "A data em que a última revisão do conteúdo do POP  foi realizada."@pt ,
@@ -320,7 +329,8 @@ sop:revisionDate rdf:type owl:DatatypeProperty ;
 
 
 ###  https://purl.archive.org/sopontology#validity
-sop:validity rdf:type owl:DatatypeProperty ;
+sop:validity rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
              rdfs:domain sop:Sop ;
              rdfs:range xsd:date ;
              rdfs:comment "A data limite até a qual o Procedimento Operacional Padrão é considerado válido."@pt ,
@@ -330,7 +340,8 @@ sop:validity rdf:type owl:DatatypeProperty ;
 
 
 ###  https://purl.archive.org/sopontology#version
-sop:version rdf:type owl:DatatypeProperty ;
+sop:version rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
             rdfs:domain sop:Sop ;
             rdfs:range xsd:string ;
             rdfs:comment "O identificador da versão do documento (ex: 1.0, 2.1), indicando seu estágio evolutivo."@pt ,
@@ -356,10 +367,10 @@ sop:video rdf:type owl:DatatypeProperty ;
 ###  https://purl.archive.org/sopontology#Activity
 sop:Activity rdf:type owl:Class ;
              rdfs:subClassOf sop:Entity ;
-             rdfs:comment "Generic superclass that aggregates common descriptive properties shared by all entities in the ontology, such as name, description, and multimedia references."@en ,
-                          "Superclasse genérica que agrega propriedades descritivas comuns a todas as entidades da ontologia, como nome, descrição e referências multimídia."@pt ;
-             rdfs:label "Entidade"@pt ,
-                        "Entity"@en .
+             rdfs:comment "Representa uma atividade realizada no contexto de um Procedimento Operacional Padrão, podendo corresponder ao próprio procedimento ou a uma etapa que compõe sua execução."@pt ,
+                          "Represents an activity performed in the context of a Standard Operating Procedure, which may correspond to the procedure itself or to a step that composes its execution."@en ;
+             rdfs:label "Activity"@en ,
+                        "Atividade"@pt .
 
 
 ###  https://purl.archive.org/sopontology#BibliographicReference
@@ -581,30 +592,6 @@ sop:Sop rdf:type owl:Class ;
                         [ rdf:type owl:Restriction ;
                           owl:onProperty sop:name ;
                           owl:cardinality "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty sop:number ;
-                          owl:cardinality "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty sop:version ;
-                          owl:cardinality "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty sop:approvalDate ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty sop:creationDate ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty sop:revisionDate ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
-                        ] ,
-                        [ rdf:type owl:Restriction ;
-                          owl:onProperty sop:validity ;
-                          owl:maxCardinality "1"^^xsd:nonNegativeInteger
                         ] ;
         rdfs:comment "Representa um Procedimento Operacional Padrão como um documento normativo que descreve formalmente um processo operacional, incluindo versionamento, ciclo de vida e responsabilidades."@pt ,
                      "Represents a Standard Operating Procedure as a normative document that formally describes an operational process, including its versioning, lifecycle, and responsibilities."@en ;
@@ -630,12 +617,10 @@ sop:Status rdf:type owl:Class ;
 
 ###  https://purl.archive.org/sopontology#Step
 sop:Step rdf:type owl:Class ;
-         rdfs:subClassOf sop:Activity ,
-                         sop:Item ,
+         rdfs:subClassOf sop:Item ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty sop:includes ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass sop:Sop
+                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
                          ] ;
          rdfs:comment "Representa a instância concreta de execução de uma atividade no contexto de um Procedimento Operacional Padrão específico."@pt ,
                       "Represents a concrete execution instance of an activity within the context of a specific Standard Operating Procedure."@en ;
